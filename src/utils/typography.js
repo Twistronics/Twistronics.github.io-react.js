@@ -1,17 +1,25 @@
 import Typography from "typography"
-import Wordpress2016 from "typography-theme-wordpress-2016"
+import typographytheme from "typography-theme-twin-peaks"
 
-Wordpress2016.overrideThemeStyles = () => {
+// Wordpress2016.overrideThemeStyles = () => {
+//   return {
+//     "a.gatsby-resp-image-link": {
+//       boxShadow: `none`,
+//     },
+//   }
+// }
+
+typographytheme.overrideThemeStyles = () => {
   return {
-    "a.gatsby-resp-image-link": {
-      boxShadow: `none`,
-    },
+    "h1 > a": {
+      "background-image": `none`,
+    }
   }
 }
 
-delete Wordpress2016.googleFonts
+// delete Wordpress2016.googleFonts
 
-const typography = new Typography(Wordpress2016)
+const typography = new Typography(typographytheme)
 
 // Hot reload typography in development.
 if (process.env.NODE_ENV !== `production`) {

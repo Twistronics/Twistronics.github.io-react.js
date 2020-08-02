@@ -3,7 +3,7 @@ module.exports = {
     title: `Twistronics Blog`,
     author: {
       name: `twistronics`,
-      summary: `A bug hunter`,
+      summary: `  `,
     },
     description: `A blog.`,
     siteUrl: `https://twistronics.github.io/`,

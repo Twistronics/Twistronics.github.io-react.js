@@ -31,11 +31,37 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
             style={{
               ...scale(-1 / 5),
               display: `block`,
-              marginBottom: rhythm(1),
+              marginBottom: rhythm(0.8),
             }}
           >
             {post.frontmatter.date}
           </p>
+          <div>
+            <ul style={{
+              padding: 0,
+              margin: "0 -.625rem",
+              marginBottom: rhythm(1),
+            }}>
+              {post.frontmatter.tags.map((element) => 
+                <li style={{
+                  margin: ".625rem .3125rem",
+                  display: "inline-block",
+                  height: "2.1875rem",
+                  padding: "0 1.5rem",
+                  lineHeight: "2.1875rem",
+                  border: "1px solid #e6e6e6",
+                  textDecoration: "none",
+                  borderRadius: "1.25rem",
+                  color: "#222",
+                  fontSize: "0.9rem",
+                }}  
+              >
+                  {element}
+                </li>
+              )}
+            </ul>
+          </div>
+
         </header>
         <section dangerouslySetInnerHTML={{ __html: post.html }} />
         <hr
@@ -95,6 +121,7 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        tags
       }
     }
   }

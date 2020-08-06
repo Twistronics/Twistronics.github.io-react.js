@@ -5,6 +5,7 @@ import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm } from "../utils/typography"
+import styles from "../templates/blog-post.module.sass"
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
@@ -28,7 +29,12 @@ const BlogIndex = ({ data, location }) => {
                   {title}
                 </Link>
               </h3>
-              <small>{node.frontmatter.date}</small>
+              <div>
+              <small style={{marginRight: '2rem', whiteSpace: "nowrap"}}>{node.frontmatter.date}</small>
+                  {node.frontmatter.tags.map(element => (
+                    <li className={styles["blogTagSmallSize"]}>{element}</li>
+                  ))}
+              </div>
             </header>
             <section>
               <p
@@ -64,6 +70,7 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             description
+            tags
           }
         }
       }

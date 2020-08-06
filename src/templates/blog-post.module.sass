@@ -1,18 +1,39 @@
 
 
-.blog-tag
-    margin: .625rem .3125rem
+@mixin tag
+    
     display: inline-block
-    height: 2.1875rem
-    padding: 0 1.5rem
-    line-height: 2.1875rem
     border: 1px solid #e6e6e6
     text-decoration: none
     border-radius: 1.25rem
     color: #222
+
+@mixin tag-hover
+    color: white
+    background-color: gray
+    border: 1px gray solid  
+
+
+.blog-tag
+    @include tag
+    margin: .625rem .3125rem
+    height: 2.1875rem
+    padding: 0 1.5rem
+    line-height: 2.1875rem
     font-size: 0.9rem
 
+    &-small-size
+        @include tag
+        margin: 0rem .3125rem
+        height: 1.15rem
+        line-height: 1rem
+        padding: 0 0.7rem
+        font-size: 0.8rem
+        white-space: nowrap
+
+        &:hover
+            @include tag-hover
+
     &:hover
-        color: white
-        background-color: gray
-        border: 1px gray solid
+        @include tag-hover
+        

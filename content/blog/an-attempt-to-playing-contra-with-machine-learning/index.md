@@ -1,6 +1,6 @@
 ---
 title: An attempt to playing contra with machine learning
-date: "2016-12-03"
+date: "2016-12-03T13:15:30Z"
 description: "This article presents an attempt for playing contra on Nintendo Entertainment System (NES) with neural networks. We have tried different network architectures and different strategies of training, but we failed to beat level 1. We mainly focus on the analysis of our failure and possible solutions."
 tags:
   - "machine learning"

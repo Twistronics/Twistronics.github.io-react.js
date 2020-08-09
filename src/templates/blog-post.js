@@ -28,7 +28,6 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
             }}
           >
             {post.frontmatter.title}
-
           </h1>
           <p
             style={{
@@ -48,7 +47,12 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
               }}
             >
               {post.frontmatter.tags.map(element => (
-                <li className={styles["blogTag"]}>{element}</li>
+                <Link
+                  to={`/tag/${element}`}
+                  style={{ backgroundImage: `none` }}
+                >
+                  <li className={styles["blogTag"]}>{element}</li>
+                </Link>
               ))}
             </ul>
           </div>

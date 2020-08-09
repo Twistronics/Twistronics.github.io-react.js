@@ -1,20 +1,20 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 
-// import Bio from "../components/bio"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
 import { rhythm } from "../utils/typography"
-import styles from "../templates/blog-post.module.sass"
+import styles from "./blog-post.module.sass"
+import Layout from "../components/layout"
+import Title from "../components/title"
 
-const BlogIndex = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata.title
+const TagPageTemplate = ({ data, pageContext, location }) => {
   const posts = data.allMarkdownRemark.edges
 
   return (
-    <Layout location={location} title={siteTitle}>
-      <SEO title="All posts" />
-      {/* <Bio /> */}
+    // <div><pre>{JSON.stringify(posts, null, 4)}</pre></div>
+
+    <Layout location={location}>
+      <Title to="/all-tags">Tag: {pageContext.tag}</Title>
+
       {posts.map(({ node }) => {
         const title = node.frontmatter.title || node.fields.slug
         return (
@@ -57,25 +57,27 @@ const BlogIndex = ({ data, location }) => {
   )
 }
 
-export default BlogIndex
+export default TagPageTemplate
 
 export const pageQuery = graphql`
-  query {
+  query TagPage($tag: String!) {
     site {
       siteMetadata {
         title
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(
+      filter: { frontmatter: { tags: { in: [$tag] } } }
+      sort: { order: DESC, fields: [frontmatter___date] }
+    ) {
       edges {
         node {
-          excerpt
           fields {
             slug
           }
           frontmatter {
-            date(formatString: "MMMM DD, YYYY")
             title
+            date(formatString: "MMMM DD, YYYY")
             description
             tags
           }

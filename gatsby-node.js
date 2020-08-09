@@ -48,6 +48,32 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     })
   })
+
+
+
+  // // creat all tags page
+  const useTagsList  = await graphql(`
+      query TagsListQuery {
+        allMarkdownRemark {
+          group(field: frontmatter___tags) {
+            fieldValue
+            totalCount
+          }
+        }
+      }
+    `
+  )
+
+
+  useTagsList.data.allMarkdownRemark.group.map((tag) => {
+    createPage({
+      path: `/tag/${tag.fieldValue}`,
+      component: path.resolve(`./src/templates/tag-page.js`),
+      context: {
+        tag: tag.fieldValue
+      }
+    })
+  })
 }
 
 exports.onCreateNode = ({ node, actions, getNode }) => {

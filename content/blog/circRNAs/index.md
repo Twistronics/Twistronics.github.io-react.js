@@ -6,7 +6,7 @@ the genomic loci of all circRNAs. Given a certain genomic locus, our goal is to 
 to predict whether a pair of two loci will form a circRNA or not"
 tags: 
   - "Python"
-  - "machine learning"
+  - "Machine learning"
   - "机器学习"
   - "TensorFlow"
 ---

@@ -5,6 +5,7 @@ description: "Lucene练习，在hellolucene的基础上，结合Word2vec"
 tags:
   - Java
   - "C/C++"
+  - "Information retrieval"
 ---
 
 基于 `lucene3.5.0` 

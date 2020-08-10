@@ -4,7 +4,7 @@ date: "2016-11-10T13:15:30Z"
 description: "Option 1. Image Captioning using RNN and LSTM. "
 tags: 
   - "Python"
-  - "machine learning"
+  - "Machine learning"
   - "机器学习"
 ---
 

@@ -4,6 +4,7 @@ date: "2016-09-19T13:15:30Z"
 description: "在hellolucene的基础上实现多域检索"
 tags:
   - Java
+  - "Information retrieval"
 ---
 
 基于 `lucene3.5.0` 

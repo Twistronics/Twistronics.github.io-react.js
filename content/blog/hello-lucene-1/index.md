@@ -4,6 +4,7 @@ date: "2016-09-14T13:15:30Z"
 description: "Lucene练习，基于lucene3.5.0，使用Lucene的简易检索代码。"
 tags:
   - Java
+  - "Information retrieval"
 ---
 
 基于 `lucene3.5.0` 

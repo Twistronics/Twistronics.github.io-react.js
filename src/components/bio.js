@@ -57,12 +57,13 @@ const Bio = () => {
         }}
       /> */}
       <p>
-        Written by <strong>{author.name}</strong> {author.summary}
+        Written by <a href={`https://github.com/${social.github}`} 
+        style={{backgroundImage: `none`}}>
+        <strong>{author.name}</strong>
+        </a></p> {author.summary}
         {` `}
-        <a href={`https://github.com/${social.github}`}>
-          
-        </a>
-      </p>
+        {/* <a href={`https://github.com/${social.github}`}> */}
+      
     </div>
   )
 }

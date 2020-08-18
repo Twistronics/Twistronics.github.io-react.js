@@ -3,7 +3,7 @@ title: "Combinatory categorial grammar"
 date: "2017-03-19T13:15:30Z"
 description: "利用组合范畴语法进行餐饮问答的语义分析，把自然语言转化成逻辑表达式，在知识库上生成答案"
 tags:
-  - "Python"
+  - "Java"
   - "Algorithm"
   - "Natural language processing"
   - "Machine learning"
@@ -62,4 +62,54 @@ tags:
     Y : g   X\Y : f ⇒ X : f(g) 	(<)
     X/W : f   W/Y : g ⇒ X/Y : λx.f(g(x)) 	(> B) 
     W\Y : g   X\W : f ⇒ X\Y : λx.f(g(x)) 	(< B)
+
+
+#### 知识库查询
+对于知识库中的一个知识实例，可以用一个三元组来表示
+*（实体，关系，属性值）
+*（实体1，关系，实体2） 
+![](img/15.png)
+
+在知识库上生成答案
+* 将逻辑表达式按规则转化成SPARQL查询语句
+* 执行SPARQL语句，在知识库中查询答案
+![](img/16.png)
+
+逻辑表达式：
+    λx.zone(x, 五道口)∧label(x, 日本菜) ∧(price(x)>100)
+
+
+SPARQL查询语句：
+```sparql
+PREFIX 略
+SELECT ?s ?name 
+WHERE { 
+    ?s restruant:zone ?x125490038 . 
+    FILTER regex(?x125490038, “五道口” ) . 
+    ?s restruant:category ?x787707848 . 
+    FILTER regex(?x787707848, “日本菜” ) . 
+    ?s restruant:price ?x413926721 . 
+    FILTER (xsd:float(?x413926721) > 100) . 
+    ?s restruant:name ?name . 
+}
+```
+
+查询结果：
+
+    { http://RestrauntName/512591 月卿云客日本料理 } 
+    { http://RestrauntName/6148589 寿司道场 }
+    { http://RestrauntName/13864416 居酒屋のんべい(酒鬼金) }
+
+交叉验证
+
+| | Precision  | Recall  |  F1 | 
+|--- |---|---|---|
+| Mid | 88.9%  |  53.6% | 66.5% |  
+| End | 93.7%  |  81.3% |  86.9% |  
+
+随着迭代周期增加，在训练集上F1逐步上升；在测试集上F1先上升，在迭代周期达到12后开始下降，出现过拟合趋势。最终选择迭代12个周期。
+![](img/17.png)
+
+#### parser界面
+![](img/18.png)
 

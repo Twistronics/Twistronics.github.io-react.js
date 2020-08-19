@@ -168,19 +168,19 @@ int main(int argc, char *argv[])
 
 这里分了一个控制进程和其它工作进程，控制进程负责发送、收集信息，工作进程负责计算。
 
-先使用 `mpiexec -n 4 /home/HPC2016/2013012213/test/a.out` 进行测试，这里用了4个核
+先使用 `mpiexec -n 4 /home/HPC2016/htest/test/a.out` 进行测试，这里用了4个核
 
 结果
 
 ![](img/3-1.png)
 
-设置为24核试一下 `mpiexec -n 24 /home/HPC2016/2013012213/test/a.out`
+设置为24核试一下 `mpiexec -n 24 /home/HPC2016/htest/test/a.out`
 
 结果
 
 ![](img/3-2.png)
 
-结果慢了好多，应该是代码问题，设置为12核再尝试一下 `mpiexec -n 12 /home/HPC2016/2013012213/test/a.out`
+结果慢了好多，应该是代码问题，设置为12核再尝试一下 `mpiexec -n 12 /home/HPC2016/htest/test/a.out`
 
 
 结果

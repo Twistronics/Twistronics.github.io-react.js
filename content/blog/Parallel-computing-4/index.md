@@ -129,7 +129,7 @@ int main(int argc, char *argv[])
 使用命令 `mpiexec -n 12 ./a.out` 运行时出现以下错误
 
 ```
-mpiexec_localhost.localdomain: cannot connect to local mpd (/tmp/mpd2.console_2013012213); possible causes:
+mpiexec_localhost.localdomain: cannot connect to local mpd (/tmp/mpd2.console_htest); possible causes:
   1. no mpd is running on this host
   2. an mpd is running but was started without a "console" (-n option)
 ```

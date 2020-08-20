@@ -12,7 +12,10 @@ import typographytheme from "typography-theme-twin-peaks"
 typographytheme.overrideThemeStyles = () => {
   return {
     "h1 > a": {
-      "background-image": `none`,
+      backgroundImage: `none`,
+    }, 
+    "html": {
+      scrollBehavior: "smooth"
     }
   }
 }

@@ -114,7 +114,7 @@ WAVWRITE will be removed in a future release. Use AUDIOWRITE instead.
 
   和目标音频`B/sen6000.wav`
 
-    <audio controls="controls">
+<audio controls="controls">
   <source src="data/experiment_2/B/sen6000.wav">
    
   </audio>
